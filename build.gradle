@@ -1,0 +1,50 @@
+/*
+ * Copyright 2019-2021 Mamoe Technologies and contributors.
+ *
+ * 此源代码的使用受 GNU AFFERO GENERAL PUBLIC LICENSE version 3 许可证的约束, 可以在以下链接找到该许可证.
+ * Use of this source code is governed by the GNU AGPLv3 license that can be found through the following link.
+ *
+ * https://github.com/mamoe/mirai/blob/dev/LICENSE
+ */
+
+import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
+
+plugins {
+    id 'java'
+    id 'java-library'
+    id 'org.jetbrains.kotlin.jvm' version '1.5.10'
+    id 'com.github.johnrengelman.shadow' version '6.0.0'
+}
+
+allprojects {
+    group 'net.mamoe'
+    version '0.0.3'
+}
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://repo.mirai.mamoe.net/snapshots/' }
+}
+
+dependencies {
+    compileOnly 'org.jetbrains:annotations:22.0.0'
+    compileOnly 'net.mamoe:mirai-core-api:2.8.0-M1-dev-b31f7b1b'
+    api 'io.github.kasukusakura:silk-codec:0.0.4'
+    testImplementation 'net.mamoe:mirai-core-api:2.8.0-M1-dev-b31f7b1b'
+
+    compileOnly 'net.mamoe:mirai-console:2.7.1'
+}
+
+test {
+    useJUnitPlatform()
+    enabled = false
+}
+
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+tasks.withType(KotlinCompile.class) { KotlinCompile task ->
+    task.kotlinOptions.freeCompilerArgs += "-Xjvm-default=all"
+}
