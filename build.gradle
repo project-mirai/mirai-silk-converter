@@ -55,3 +55,9 @@ compileJava {
 tasks.withType(KotlinCompile.class) { KotlinCompile task ->
     task.kotlinOptions.freeCompilerArgs += "-Xjvm-default=all"
 }
+
+shadowJar {
+    dependencyFilter.include { dep ->
+        return dep.moduleName == 'silk-codec'
+    }
+}
