@@ -14,6 +14,7 @@ plugins {
     id 'java-library'
     id 'org.jetbrains.kotlin.jvm' version '1.5.10'
     id 'com.github.johnrengelman.shadow' version '6.0.0'
+    id 'net.mamoe.maven-central-publish' version '0.6.1'
 }
 
 allprojects {
@@ -33,6 +34,12 @@ dependencies {
     testImplementation 'net.mamoe:mirai-core-api:2.8.0-M1-dev-b31f7b1b'
 
     compileOnly 'net.mamoe:mirai-console:2.7.1'
+}
+
+mavenCentralPublish {
+    githubProject("project-mirai", "mirai-silk-converter")
+    licenseFromGitHubProject("AGPL-3.0", "main")
+    developer("Karlatemp", "Karlatemp", "karlatemp@vip.qq.com")
 }
 
 test {
