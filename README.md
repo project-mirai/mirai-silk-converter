@@ -21,8 +21,8 @@
 >    选择左边的 `Advanced system settings`(高级系统设置)
 > 4. 找到 `Environment Variables` (环境变量)
 > 5. 找到 `Path` (建议修改 `System variables`(系统变量))
-> 6. 如果弹出窗口为列表状窗口, 点击 `New`, 将 `E:/Exes/FFmpeg/ffmpeg.exe` 添加进去
-> 7. 如果弹出窗口只有一个值字段输入, 将 `;E:/Exes/FFmpeg/ffmpeg.exe` 添加至末尾 (不要忘记 `;`)
+> 6. 如果弹出窗口为列表状窗口, 点击 `New`, 将 `E:/Exes/FFmpeg` 添加进去
+> 7. 如果弹出窗口只有一个值字段输入, 将 `;E:/Exes/FFmpeg` 添加至末尾 (不要忘记 `;`)
 > 8. 刷新相关的环境变量, 如关闭应用程序(一般为命令行窗口(`cmd.exe`))然后重新打开, 如果嫌刷新麻烦可以直接重启系统
 
 ## Linkage
