@@ -19,7 +19,7 @@ plugins {
 
 allprojects {
     group 'net.mamoe'
-    version '0.0.3'
+    version '0.0.5'
 }
 
 repositories {
@@ -30,7 +30,7 @@ repositories {
 dependencies {
     compileOnly 'org.jetbrains:annotations:22.0.0'
     compileOnly 'net.mamoe:mirai-core-api:2.8.0-M1-dev-b31f7b1b'
-    api 'io.github.kasukusakura:silk-codec:0.0.4'
+    api 'io.github.kasukusakura:silk-codec:0.0.5'
     testImplementation 'net.mamoe:mirai-core-api:2.8.0-M1-dev-b31f7b1b'
 
     compileOnly 'net.mamoe:mirai-console:2.7.1'
