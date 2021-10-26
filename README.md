@@ -1,6 +1,7 @@
 # Silk Converter
 
 ----
+[![Maven Central](https://img.shields.io/maven-central/v/net.mamoe/mirai-silk-converter.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22net.mamoe%22%20AND%20a:%22mirai-silk-converter%22)
 
 这是 `mirai` 的可选模块, 自 `2.8.0` 起可以用, 用于自动将不支持的音频格式转换为受支持的音频格式
 
@@ -31,6 +32,27 @@
 
 将该模块加入运行时 classpath 即可
 
+```groovy
+dependencies {
+    api "net.mamoe:mirai-silk-converter:<LATEST_VERSION>"
+}
+```
+
 ### mirai-console
 
 将该模块放入 `plugins` 即可
+
+#### Download
+
+```shell
+#!/usr/bin/env bash
+VER=0.0.3
+curl -L https://repo1.maven.org/maven2/net/mamoe/mirai-silk-converter/$VER/mirai-silk-converter-$VER-all.jar --output mirai-silk-converter-$VER-all.jar
+```
+
+#### 使用 [Mirai Console Loader](https://github.com/iTXTech/mirai-console-loader) 安装 `mirai-silk-converter`
+
+* `MCL` 支持自动更新插件，支持设置插件更新频道等功能
+
+`./mcl --update-package net.mamoe:mirai-silk-converter --channel beta --type plugin`
+
