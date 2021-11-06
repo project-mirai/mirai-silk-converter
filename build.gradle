@@ -24,16 +24,15 @@ allprojects {
 
 repositories {
     mavenCentral()
-    maven { url = 'https://repo.mirai.mamoe.net/keep/' }
 }
 
 dependencies {
     compileOnly 'org.jetbrains:annotations:22.0.0'
-    compileOnly 'net.mamoe:mirai-core-api:2.8.0-M1-dev-b31f7b1b'
+    compileOnly 'net.mamoe:mirai-core-api:2.8.0-RC'
     api 'io.github.kasukusakura:silk-codec:0.0.5'
-    testImplementation 'net.mamoe:mirai-core-api:2.8.0-M1-dev-b31f7b1b'
+    testImplementation 'net.mamoe:mirai-core-api:2.8.0-RC'
 
-    compileOnly 'net.mamoe:mirai-console:2.7.1'
+    compileOnly 'net.mamoe:mirai-console:2.8.0-RC'
 }
 
 mavenCentralPublish {
