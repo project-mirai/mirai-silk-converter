@@ -44,6 +44,8 @@ dependencies {
 
 #### Download
 
+在 https://repo1.maven.org/maven2/net/mamoe/mirai-silk-converter/ 下载最新版本的 `-all.jar` 文件
+
 ```shell
 #!/usr/bin/env bash
 VER=0.0.3
