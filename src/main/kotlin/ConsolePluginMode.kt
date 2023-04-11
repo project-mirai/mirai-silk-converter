@@ -45,7 +45,7 @@ internal object MiraiSilkConverterConsolePlugin : KotlinPlugin(JvmPluginDescript
                     }
 
                     override fun errorLog(throwable: Throwable?) {
-                        logger.error(throwable)
+                        logger.error("SilkCoder execute error", throwable)
                     }
                 }
             }
