@@ -29,11 +29,13 @@ import net.mamoe.mirai.utils.verbose
 import java.io.File
 
 @PublishedApi
-internal object MiraiSilkConverterConsolePlugin : KotlinPlugin(JvmPluginDescription(
+internal object MiraiSilkConverterConsolePlugin : KotlinPlugin(
+    JvmPluginDescription(
         id = "net.mamoe.mirai-silk-converter",
-        version = "0.0.3",
+        version = "0.0.6",
         name = "Silk Converter"
-)) {
+    )
+) {
     @MiraiExperimentalApi
     override fun PluginComponentStorage.onLoad() {
         kotlin.runCatching {
@@ -60,14 +62,14 @@ internal object MiraiSilkConverterConsolePlugin : KotlinPlugin(JvmPluginDescript
         if (dataFolder.resolve("DEBUG_MODE").exists()) {
             kotlin.runCatching {
                 Class.forName("io.github.kasukusakura.silkcodec.NativeBridge")
-                        .getDeclaredField("DEB")
-                        .also { it.isAccessible = true }
-                        .setBoolean(null, true)
+                    .getDeclaredField("DEB")
+                    .also { it.isAccessible = true }
+                    .setBoolean(null, true)
             }.onFailure { logger.error(it) }
             val vozperm = PermissionService.INSTANCE.register(
-                    permissionId("debug"),
-                    "",
-                    this.parentPermission
+                permissionId("debug"),
+                "",
+                this.parentPermission
             )
             globalEventChannel().subscribeAlways<MessageEvent> {
                 val sender = try {
@@ -81,11 +83,13 @@ internal object MiraiSilkConverterConsolePlugin : KotlinPlugin(JvmPluginDescript
                 if (content.startsWith(".voiced ")) {
                     val s = subject
                     if (s is AudioSupported) {
-                        s.sendMessage(s.uploadAudio(
+                        s.sendMessage(
+                            s.uploadAudio(
                                 File(content.removePrefix(".voiced").trim())
-                                        .toExternalResource()
-                                        .toAutoCloseable()
-                        ))
+                                    .toExternalResource()
+                                    .toAutoCloseable()
+                            )
+                        )
                     } else {
                         s.sendMessage("Current session not supported audio sending")
                     }
