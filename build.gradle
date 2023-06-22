@@ -7,13 +7,11 @@
  * https://github.com/mamoe/mirai/blob/dev/LICENSE
  */
 
-import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
-
 plugins {
     id 'java'
     id 'java-library'
-    id 'org.jetbrains.kotlin.jvm' version '1.7.10'
-    id 'net.mamoe.mirai-console' version '2.14.0'
+    id 'org.jetbrains.kotlin.jvm' version '1.8.10'
+    id 'net.mamoe.mirai-console' version '2.15.0-RC'
     id 'me.him188.maven-central-publish' version '1.0.0-dev-3'
 }
 
@@ -26,6 +24,7 @@ repositories {
 
 dependencies {
     api 'io.github.kasukusakura:silk-codec:0.0.5'
+    compileOnly 'net.mamoe:mirai-core-utils:2.15.0-RC'
 }
 
 mavenCentralPublish {
@@ -36,6 +35,11 @@ mavenCentralPublish {
 
 kotlin {
     explicitApi()
+}
+
+mirai {
+    coreVersion = "2.14.0"
+    consoleVersion = "2.14.0"
 }
 
 test {

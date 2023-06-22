@@ -21,9 +21,9 @@ import net.mamoe.mirai.contact.AudioSupported
 import net.mamoe.mirai.event.events.MessageEvent
 import net.mamoe.mirai.event.globalEventChannel
 import net.mamoe.mirai.message.data.content
-import net.mamoe.mirai.spi.AudioToSilkService
 import net.mamoe.mirai.utils.ExternalResource.Companion.toExternalResource
 import net.mamoe.mirai.utils.MiraiExperimentalApi
+import net.mamoe.mirai.utils.Services
 import net.mamoe.mirai.utils.error
 import net.mamoe.mirai.utils.verbose
 import java.io.File
@@ -51,7 +51,17 @@ internal object MiraiSilkConverterConsolePlugin : KotlinPlugin(
                     }
                 }
             }
-            AudioToSilkService.setService(SilkConverterImpl())
+            try {
+                Services.register(
+                    "net.mamoe.mirai.spi.AudioToSilkService",
+                    "net.mamoe.mirai.silkconverter.SilkConverterImpl",
+                    ::SilkConverterImpl
+                )
+            } catch (_: NoClassDefFoundError) {
+                val clazz = net.mamoe.mirai.spi.AudioToSilkService::class.java
+                clazz.getDeclaredMethod("setService", clazz)
+                    .invoke(null, SilkConverterImpl())
+            }
         }.onFailure {
             logger.error(it)
             logger.error { "Configuration location: " + dataFolder.absolutePath }
